@@ -1,0 +1,97 @@
+<div
+  class="max-w-full w-full grid grid-cols-5 border border-gray-300 rounded-md"
+>
+  <div
+    class="p-4 border-r border-gray-300 flex flex-col space-y-2 items-center"
+  >
+    <span class="text-gray-600 text-sm">Quantidade de movimentos</span>
+    <div
+      *ngIf="stats.length == 0; else elseMovimentosCount"
+      role="status"
+      class="animate-pulse h-3 bg-gray-200 rounded-full w-12 mb-4"
+    ></div>
+    <ng-template #elseMovimentosCount>
+      <span class="text-xl">{{ stats[0].movimentosCount }}</span>
+    </ng-template>
+  </div>
+  <div
+    class="p-4 border-r border-gray-300 flex flex-col space-y-2 items-center"
+  >
+    <span class="text-gray-600 text-sm">Quantiade de processos</span>
+    <div
+      *ngIf="stats.length == 0; else elseMovimentosCount"
+      role="status"
+      class="animate-pulse h-3 bg-gray-200 rounded-full w-12 mb-4"
+    ></div>
+    <ng-template #elseMovimentosCount>
+      <span class="text-xl">{{ stats[0].casesCount }}</span>
+    </ng-template>
+  </div>
+  <div
+    class="p-4 border-r border-gray-300 flex flex-col space-y-2 items-center"
+  >
+    <div class="flex flex-row space-x-2 items-center w-full">
+      <span class="text-gray-600 text-sm whitespace-nowrap"
+        >Número de grupos de processos</span
+      >
+      <lucide-icon
+        name="info"
+        class="w-4 h-4"
+        matTooltip="Informação legal aqui"
+        matTooltipPosition="above"
+      ></lucide-icon>
+    </div>
+    <div
+      *ngIf="stats.length == 0; else elseavgCaseDuration"
+      role="status"
+      class="animate-pulse h-3 bg-gray-200 rounded-full w-12 mb-4"
+    ></div>
+    <ng-template #elseavgCaseDuration>
+      <span class="text-xl">{{ stats[0].avgCaseDuration }}</span>
+    </ng-template>
+  </div>
+  <div
+    class="p-4 border-r border-gray-300 flex flex-col space-y-2 items-center"
+  >
+    <div class="flex flex-row space-x-2 items-center w-full">
+      <span class="text-gray-600 text-sm whitespace-nowrap"
+        >Média da duração dos processos</span
+      >
+      <lucide-icon
+        name="info"
+        class="w-4 h-4"
+        matTooltip="Informação legal aqui"
+        matTooltipPosition="above"
+      ></lucide-icon>
+    </div>
+    <div
+      *ngIf="stats.length == 0; else elseavgMovimentoDuration"
+      role="status"
+      class="animate-pulse h-3 bg-gray-200 rounded-full w-12 mb-4"
+    ></div>
+    <ng-template #elseavgMovimentoDuration>
+      <span class="text-xl">{{ stats[0].avgMovimentoDuration }}</span>
+    </ng-template>
+  </div>
+  <div class="p-4 flex flex-col space-y-2 items-center">
+    <div class="flex flex-row space-x-2 items-center w-full">
+      <span class="text-gray-600 text-sm whitespace-nowrap"
+        >Média de movimentos por processo</span
+      >
+      <lucide-icon
+        name="info"
+        class="w-4 h-4"
+        matTooltip="Informação legal aqui"
+        matTooltipPosition="above"
+      ></lucide-icon>
+    </div>
+    <div
+      *ngIf="stats.length == 0; else elseavgMovimentosPerCase"
+      role="status"
+      class="animate-pulse h-3 bg-gray-200 rounded-full w-12 mb-4"
+    ></div>
+    <ng-template #elseavgMovimentosPerCase>
+      <span class="text-xl">{{ stats[0].avgMovimentosPerCase }}</span>
+    </ng-template>
+  </div>
+</div>
