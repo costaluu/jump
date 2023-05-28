@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Processo } from '../../types/Processo';
 import { AnalysisFacade } from '../../analysis.facade';
 import { ActivatedRoute } from '@angular/router';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-analysis',
@@ -10,17 +11,19 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AnalysisComponent {
   selectedMovimento: string | null = null;
-  processoList: Processo[] = [];
+  processoList: Processo[] | undefined = [];
 
   constructor(public facade: AnalysisFacade, private route: ActivatedRoute) {
     this.selectedMovimento = this.route.snapshot.paramMap.get('name');
 
-    console.log(this.selectedMovimento);
-
     facade.api
       .fetchProcessosDataByName(this.selectedMovimento ?? '')
+      .pipe(
+        catchError(() => {
+          return of({ cases: undefined });
+        })
+      )
       .subscribe((processoData) => {
-        console.log(processoData.cases);
         this.processoList = processoData.cases;
       });
   }

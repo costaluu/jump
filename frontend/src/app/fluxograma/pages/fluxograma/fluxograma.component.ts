@@ -48,15 +48,14 @@ export class FluxogramaComponent implements AfterViewInit {
           .attr(
             'xlink:href',
             'https://cdn-icons-png.flaticon.com/512/1810/1810852.png'
-          ) // Replace with your desired image URL
-          .attr('width', '16') // Replace with your desired image width
-          .attr('height', '16') // Replace with your desired image height
-          .attr('x', x - 65) // Replace with your desired image x-coordinate
+          )
+          .attr('width', '16')
+          .attr('height', '16')
+          .attr('x', x - 65)
           .attr('y', y - 5)
           .style('cursor', 'pointer')
           .on('click', () => {
             router.navigate([`/analysis/${movimento}`]);
-            console.log(movimento);
           });
       });
     }

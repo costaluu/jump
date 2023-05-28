@@ -21,7 +21,7 @@ import { MatPaginator } from '@angular/material/paginator';
 export class AnalysisTableComponent
   implements OnInit, AfterViewInit, OnChanges
 {
-  @Input() data: readonly Processo[] = [];
+  @Input() data: readonly Processo[] | undefined = [];
   @Input() displayedColumns: string[] = [
     'NPU',
     'movimentosCount',

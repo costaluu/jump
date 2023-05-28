@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AnalysisComponent } from './pages/analysis/analysis.component';
 import { AnalysisState } from './state/analysis-state/analysis.state';
-import { AnalysisApi } from './api/analysis.api';
+import { AnalysisApiService } from './api/analysis.api';
 import { AnalysisFacade } from './analysis.facade';
 import { analysisInitializerProvider } from './analysis.initializer';
 import { AnalysisRoutingModule } from './analysis-routing.module';
@@ -16,7 +16,7 @@ import { MatSortModule } from '@angular/material/sort';
 @NgModule({
   providers: [
     AnalysisState,
-    AnalysisApi,
+    AnalysisApiService,
     AnalysisFacade,
     analysisInitializerProvider,
   ],
