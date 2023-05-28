@@ -2,7 +2,7 @@
   <table mat-table [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="NPU">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>NPU</th>
-      <td mat-cell *matCellDef="let element">Movimento {{ element.NPU }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.NPU }}</td>
     </ng-container>
 
     <ng-container matColumnDef="movimentosCount">
