@@ -2,9 +2,9 @@ import { TestBed } from '@angular/core/testing';
 
 import { AnalysisApiService } from './analysis.api';
 import { HttpClient, HttpHandler } from '@angular/common/http';
-import { catchError, of, take } from 'rxjs';
+import { catchError, of } from 'rxjs';
 
-fdescribe('AnalysisApiService', () => {
+describe('AnalysisApiService', () => {
   let service: AnalysisApiService;
 
   beforeEach(() => {
